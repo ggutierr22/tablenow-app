@@ -12,14 +12,13 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Install dependencies
-        run: npm install
+        run: npm install # Using 'install' here is more flexible than 'ci' for now
 
       - name: Cypress run
         uses: cypress-io/github-action@v7
         with:
-          # Vite projects use "npm run dev"
-          start: npm run dev
-          # Matches your local port 8080
+          # Adding --host ensures the GitHub runner can connect to port 8080
+          start: npm run dev -- --host
           wait-on: 'http://localhost:8080'
           wait-on-timeout: 120
           record: true
