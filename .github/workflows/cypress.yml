@@ -1,3 +1,6 @@
+# Force update 1.0
+name: Cypress Tests
+...
 name: Cypress Tests
 on: [push]
 jobs:
