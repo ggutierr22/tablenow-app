@@ -11,17 +11,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # This ensures all your app's packages are installed in the GitHub environment
       - name: Install dependencies
         run: npm install
 
       - name: Cypress run
         uses: cypress-io/github-action@v7
         with:
-          start: npm start
-          # UPDATED: Pointing to your actual port 8080
+          # Vite projects use "npm run dev"
+          start: npm run dev
+          # Matches your local port 8080
           wait-on: 'http://localhost:8080'
-          wait-on-timeout: 60
+          wait-on-timeout: 120
           record: true
           parallel: true
         env:
