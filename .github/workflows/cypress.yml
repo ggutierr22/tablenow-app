@@ -1,6 +1,3 @@
-# Force update 1.0
-name: Cypress Tests
-...
 name: Cypress Tests
 on: [push]
 jobs:
@@ -21,8 +18,8 @@ jobs:
           install-command: npm install
           # Vite uses "dev" instead of "start"
           start: npm run dev
-          # Vite's default port is 5173
-          wait-on: 'http://localhost:5173'
+          # Vite's default port is 8080 (tablenow)
+          wait-on: 'http://localhost:8080'
           record: true
           parallel: true 
         env:
